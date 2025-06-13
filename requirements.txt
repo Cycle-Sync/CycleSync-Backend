@@ -1,0 +1,27 @@
+python-dotenv
+django
+cloudinary
+pillow
+gunicorn==23.0.0
+psycopg2-binary
+sqlparse==0.5.1
+virtualenv==20.26.6
+requests
+django-countries  
+django-select2
+django-formtools
+whitenoise
+djangorestframework-simplejwt
+djangorestframework
+django-cors-headers
+django-redis
+redis
+celery
+django-celery-beat
+django-celery-results
+# numpy
+# keras
+# tensorflow
+# scikit-learn
+# pandas
+# matplotlib
