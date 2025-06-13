@@ -1,4 +1,4 @@
-# venv
+venv
 # db.sqlite3
-# .qodo
-# .env
+.qodo
+.env
