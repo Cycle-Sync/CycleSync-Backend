@@ -7,12 +7,8 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p7e$0gfs$628cen=&lhp5_3gv!y!mp!t!ff6v*d90ba!w$)e%^'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -62,7 +58,7 @@ REST_FRAMEWORK = {
 # settings.py (below the imports)
 
 REDIS_URL = os.getenv("REDIS_URL")
-# e.g. "rediss://:mypassword@redis-12345.c10.us-west-2-2.ec2.cloud.redislabs.com:6379/0"
+
 
 CACHES = {
     "default": {
@@ -86,7 +82,7 @@ SESSION_CACHE_ALIAS = "default"
 #celery settings
 # settings.py (continued)
 
-# ─── Celery Configuration ─────────────────────────────────────────────────────
+# Celery Config
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
 
@@ -189,4 +185,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS settings (for React frontend)
 INSTALLED_APPS += ['corsheaders']
 MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
-CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict in production
+
+import os
+from corsheaders.defaults import default_headers  # if you need custom headers
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = [
+    os.getenv("ALLOWED_HOST"),
+    # you can add more defaults or hosts here
+]
+
+# CORS
+CORS_ALLOW_ALL_ORIGINS = False
+# Expect an env var like CORS_ALLOWED_ORIGINS="https://example.com,https://api.example.com"
+raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
+if raw_origins:
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",")]
+else:
+    CORS_ALLOWED_ORIGINS = []
+
+# If you need to allow additional headers through CORS:
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    # "my-custom-header",
+]
