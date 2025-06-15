@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+}
+nav {
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+nav a {
+    margin-right: 10px;
+}
+main {
+    padding: 20px;
+}
+form {
+    max-width: 400px;
+}
+
+/* for signup */
+:root {
+    --bg: #f8f5f9;
+    --shadow-light: rgba(255, 255, 255, 0.7);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+  }
+  
+  body {
+    background: var(--bg);
+    font-family: sans-serif;
+  }
+  
+  #wizard-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: var(--bg);
+    box-shadow: 
+      10px 10px 20px var(--shadow-dark),
+     -10px -10px 20px var(--shadow-light);
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 2rem;
+    background: var(--bg);
+    box-shadow: 
+      inset 6px 6px 8px var(--shadow-dark),
+      inset -6px -6px 8px var(--shadow-light);
+    font-size: 1rem;
+  }
+  
+  button {
+    cursor: pointer;
+    box-shadow: 
+      6px 6px 8px var(--shadow-dark),
+     -6px -6px 8px var(--shadow-light);
+    transition: transform .1s;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
