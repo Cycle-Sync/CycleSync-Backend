@@ -19,6 +19,7 @@ urlpatterns = [
     path('cycle-calendar/<int:year>/<int:month>/', CycleCalendarDataView.as_view(), name='cycle-calendar'),
 
     # custom endpoints
+    path("book-demo/", DemoRequestCreateAPIView.as_view(), name="book-demo"),
     path('calendar/', CalendarView.as_view(), name='calendar'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
 ]

@@ -10,7 +10,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import Profile, DailyEntry, Cycle, Prediction, Condition
+from .models import Profile, DailyEntry, Cycle, Prediction, Condition, DemoRequest
 from .serializers import ConditionSerializer
 from calendar import monthrange
 from datetime import date, timedelta
@@ -20,12 +20,13 @@ from .serializers import (
     DailyEntrySerializer,
     CycleSerializer,
     PredictionSerializer,
+    DemoRequestSerializer
 )
 from django.core.cache import cache
 from django.db.models import Avg
 
 from rest_framework.pagination import PageNumberPagination
-
+from rest_framework import generics
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
@@ -422,3 +423,9 @@ class CycleCalendarDataView(APIView):
             })
 
         return Response({"days_list": days_list})
+
+#demo
+class DemoRequestCreateAPIView(generics.CreateAPIView):
+    queryset         = DemoRequest.objects.all()
+    serializer_class = DemoRequestSerializer
+    permission_classes = [permissions.AllowAny]

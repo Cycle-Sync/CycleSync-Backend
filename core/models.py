@@ -166,3 +166,13 @@ class Prediction(models.Model):
        
     def __str__(self):
         return f"{self.user.username}'s prediction for {self.predicted_start}"
+
+#demo
+class DemoRequest(models.Model):
+    email       = models.EmailField()
+    datetime    = models.DateTimeField(null=True, blank=True)
+    message     = models.TextField(blank=True)
+    created_at  = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.email} <{self.email}> @ {self.created_at:%Y-%m-%d %H:%M}"

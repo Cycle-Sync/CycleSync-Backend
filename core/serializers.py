@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Profile, Condition, Cycle, DailyEntry, Prediction
+from .models import Profile, Condition, Cycle, DailyEntry, Prediction, DemoRequest
 from django.contrib.auth.models import User
 from django_countries.serializers import CountryFieldMixin
 
@@ -61,3 +61,12 @@ class PredictionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prediction
         fields = ['id', 'user', 'prediction_date', 'predicted_start', 'confidence', 'actual_start']
+
+#demo
+class DemoRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = DemoRequest
+        fields = [
+            "id",  "email", "datetime", "message", "created_at"
+        ]
+        read_only_fields = ["id", "created_at"]
