@@ -137,15 +137,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Database
+#db settings
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
-        'USER': 'neondb_owner',
-        'PASSWORD': 'npg_6NwvfGIEYRi9',
-        'HOST': 'ep-holy-hall-a4bfwrmo-pooler.us-east-1.aws.neon.tech',
-        'PORT': '',  # Default PostgreSQL port
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT', ''),  # leave blank for default 5432
     }
 }
 
