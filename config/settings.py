@@ -191,7 +191,7 @@ import os
 from corsheaders.defaults import default_headers  # if you need custom headers
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False#True
+DEBUG = True
 # ALLOWED_HOSTS = [
 #     os.getenv("ALLOWED_HOST", "cyclesync-beta.vercel.app"),
 # ]
