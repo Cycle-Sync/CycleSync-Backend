@@ -193,8 +193,7 @@ from corsheaders.defaults import default_headers  # if you need custom headers
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = [
-    os.getenv("ALLOWED_HOST"),
-    # you can add more defaults or hosts here
+    os.getenv("ALLOWED_HOST", "cyclesync-beta.vercel.app"),
 ]
 
 # CORS
@@ -209,4 +208,9 @@ else:
 # If you need to allow additional headers through CORS:
 CORS_ALLOW_HEADERS = list(default_headers) + [
     # "my-custom-header",
+]
+
+# CSRF
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv("CSRF_TRUSTED_ORIGIN", "https://cyclesync-beta.vercel.app"),
 ]
