@@ -193,13 +193,13 @@ from corsheaders.defaults import default_headers  # if you need custom headers
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = [
-    os.getenv("ALLOWED_HOST"),
+    # os.getenv("ALLOWED_HOST"),
     # you can add more defaults or hosts here
-   # "*"
+   "*"
 ]
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS =True
+CORS_ALLOW_ALL_ORIGINS =False
 # # Expect an env var like CORS_ALLOWED_ORIGINS="https://example.com,https://api.example.com"
 # raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
 # if raw_origins:
