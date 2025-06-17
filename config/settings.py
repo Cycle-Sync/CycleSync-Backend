@@ -191,26 +191,26 @@ import os
 from corsheaders.defaults import default_headers  # if you need custom headers
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False#True
 ALLOWED_HOSTS = [
     os.getenv("ALLOWED_HOST", "cyclesync-beta.vercel.app"),
 ]
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = False
-# Expect an env var like CORS_ALLOWED_ORIGINS="https://example.com,https://api.example.com"
-raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
-if raw_origins:
-    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",")]
-else:
-    CORS_ALLOWED_ORIGINS = []
+CORS_ALLOW_ALL_ORIGINS = True#False
+# # Expect an env var like CORS_ALLOWED_ORIGINS="https://example.com,https://api.example.com"
+# raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
+# if raw_origins:
+#     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",")]
+# else:
+#     CORS_ALLOWED_ORIGINS = []
 
-# If you need to allow additional headers through CORS:
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    # "my-custom-header",
-]
+# # If you need to allow additional headers through CORS:
+# CORS_ALLOW_HEADERS = list(default_headers) + [
+#     # "my-custom-header",
+# ]
 
-# CSRF
-CSRF_TRUSTED_ORIGINS = [
-    os.getenv("CSRF_TRUSTED_ORIGIN", "https://cyclesync-beta.vercel.app"),
-]
+# # CSRF
+# CSRF_TRUSTED_ORIGINS = [
+#     os.getenv("CSRF_TRUSTED_ORIGIN", "https://cyclesync-beta.vercel.app"),
+# ]
