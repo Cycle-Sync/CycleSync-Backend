@@ -199,13 +199,13 @@ ALLOWED_HOSTS = [
 ]
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS =True
+CORS_ALLOW_ALL_ORIGINS =False
 # # Expect an env var like CORS_ALLOWED_ORIGINS="https://example.com,https://api.example.com"
-# raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
-# if raw_origins:
-#     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",")]
-# else:
-#     CORS_ALLOWED_ORIGINS = []
+raw_origins = os.getenv("CORS_ALLOWED_ORIGINS", "")
+if raw_origins:
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",")]
+else:
+    CORS_ALLOWED_ORIGINS = []
 
 # # If you need to allow additional headers through CORS:
 # CORS_ALLOW_HEADERS = list(default_headers) + [
