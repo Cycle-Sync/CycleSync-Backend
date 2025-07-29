@@ -4,7 +4,8 @@
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 **Empowering women through personalized menstrual health tracking and insights.**
-
+<br></br>
+<img src ="https://github.com/unmatched78/back-cyclesync/blob/main/media/profile_images/default.png" /><br></br>
 CycleSync is a comprehensive menstrual cycle tracking application designed to help users monitor, predict, and understand their menstrual cycles. By providing detailed insights into symptoms, moods, and fertility patterns, CycleSync empowers users to take control of their reproductive health with confidence and knowledge.
 
 🌐 **Live Demo:** [cyclesync-beta.vercel.app](https://cyclesync-beta.vercel.app)
